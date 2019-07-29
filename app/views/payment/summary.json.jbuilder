@@ -1,4 +1,5 @@
-json.(@month,
+json.months @months do |month|
+  json.(month,
       :month_name,
       :salaries_payment_day,
       :bonus_payment_day,
@@ -6,5 +7,6 @@ json.(@month,
       :bonus_total,
       :payments_total
      )
+end
 
 
