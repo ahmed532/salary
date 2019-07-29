@@ -2,7 +2,8 @@ class PaymentController < ApplicationController
   def summary
     if current_staff.admin?
       @months = []
-      (1..12).each do |m|
+      current_month = Date.today.month
+      (current_month..12).each do |m|
         @months << MonthSummary.new(m)
       end
     else
