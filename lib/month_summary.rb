@@ -29,12 +29,15 @@ class MonthSummary
   end
 
   def salaries_total
+    Staff.salaries_total
   end
 
   def bonus_total
+    Staff.bonus_total
   end
 
   def payments_total
+    salaries_total + bonus_total
   end
 
   private
