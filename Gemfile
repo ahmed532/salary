@@ -51,3 +51,7 @@ gem 'jwt'
 # Facilitate connection between controllers and models
 gem 'simple_command'
 
+# Cron jobs for mails and other periodic tasks
+gem 'whenever', require: false
+
+

@@ -40,6 +40,14 @@ class MonthSummary
     salaries_total + bonus_total
   end
 
+  def salaries_payment_date
+    return Date.civil(Date.today.year, @month, salaries_payment_day)
+  end
+
+  def bonus_payment_date
+    return Date.civil(Date.today.year, @month, bonus_payment_day)
+  end
+  
   private
   def day_name day
     day.strftime "%A"
