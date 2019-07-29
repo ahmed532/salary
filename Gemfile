@@ -54,4 +54,6 @@ gem 'simple_command'
 # Cron jobs for mails and other periodic tasks
 gem 'whenever', require: false
 
+# Simple access control
+gem 'action_access'
 
