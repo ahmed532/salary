@@ -1,6 +1,11 @@
 # README
+## Setup
+```bash
+$ cd salary
+$ bandle install
+$ bin/rake db:setup
+```
 
-Run bundle install
 Ruby version is in .ruby-version file.<br />
 The app uses ActionMailer to send emails,
   and whenever crontab to schedule them.<br/>
