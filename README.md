@@ -30,6 +30,18 @@ $ crontab -l
 2. The request expects an email and a password<br/>
 3. The api will respond with `"auth_token"`
 4. which needs to be included in all subsequent requests under Header `"Authorization"`
+
+### Example
+```bash
+$ curl -H "Content-Type: application/json" -X POST -d '{"email":"example@mail.com","password":"password"}' http://localhost:3000/authenticate
+-> {"auth_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0NjA2NTgxODZ9.xsSwcPC22IR71OBv6bU_OGCSyfE89DvEzWfDU0iybMA"}
+$ curl http://localhost:3000/items
+-> {"error":"Not Authorized"}
+$ curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0NjA2NTgxODZ9.xsSwcPC22IR71OBv6bU_OGCSyfE89DvEzWfDU0iybMA" http://localhost:3000/payment/summary
+-> [{month:'July', ...}, {month: 'August', ...}, ...]
+$ curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0NjA2NTgxODZ9.xsSwcPC22IR71OBv6bU_OGCSyfE89DvEzWfDU0iybMA" http://localhost:3000/payment/month_details/7
+-> {month: 'July', ...}
+```
   
 * Endpoint `payment/summary` lists all upcoming months details
 * Endpoint `payment/month_details/:num` accepts any month_number `in (1..12)`
